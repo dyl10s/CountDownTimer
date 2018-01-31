@@ -6,18 +6,43 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+* This project is a count down timer that can be used
+* to count down multiple things at once as well as add time and
+* take time away. It has many functions such as adding timers
+* together and comparing them.
+*
+* @author  Dylan Strohschein
+* @version CIS 613
+* @date 1/31/2018
+*/
+
 public class CountDownTimer {
 
 	//Instance Variables
 	int hours, minutes, seconds;
 	static boolean isSuspended = false;
 	
+	   /**
+	   * This is the default constructor
+	   * it initializes all the time values to zero.
+	   */
 	public CountDownTimer() {
 		hours = 0;
 		minutes = 0;
 		seconds = 0;
 	}
 	
+	   /**
+	   * This is used to initialize a timer with a specified number
+	   * of hours, minutes and seconds.
+	   * @param hours This is the number of hours the timer
+	   * will have
+	   * @param minutes  This is the number of minutes the timer
+	   * will have
+	   * @param seconds This is the number of seconds the timer
+	   * will have
+	   */
 	public CountDownTimer(int hours, int minutes, int seconds) {
 		this.hours = hours;
 		this.minutes = minutes;
@@ -27,6 +52,14 @@ public class CountDownTimer {
 		
 	}
 	
+	   /**
+	   * This is used to initialize a timer with a specified number
+	   * of minutes and seconds.
+	   * @param minutes  This is the number of minutes the timer
+	   * will have
+	   * @param seconds This is the number of seconds the timer
+	   * will have
+	   */
 	public CountDownTimer(int minutes, int seconds) {
 		this.hours = 0;
 		this.minutes = minutes;
@@ -36,6 +69,12 @@ public class CountDownTimer {
 		
 	}
 	
+	   /**
+	   * This is used to initialize a timer with the same values
+	   * as another timer.
+	   * @param other This is another count down timer that you
+	   * would like to make a copy of.
+	   */
 	public CountDownTimer(CountDownTimer other) {
 		this.hours = other.getHours();
 		this.minutes = other.getMinutes();
@@ -45,6 +84,11 @@ public class CountDownTimer {
 		
 	}
 	
+	   /**
+	   * This converts a string in the format "H:M:S" to a timer
+	   * @param startTime This is the string that specifies the
+	   * time you wish to set the timer equal to.
+	   */
 	public CountDownTimer(String startTime) {
 		
 		if (startTime.contains(":")) {
@@ -79,6 +123,12 @@ public class CountDownTimer {
 
 	}
 	
+	   /**
+	   * This is used to check if two timers are equal to
+	   * each other
+	   * @param other This is the timer that you want to compare
+	   * the current timer equal to.
+	   */
 	public boolean equals(Object other) {
 		
 		CountDownTimer compare = (CountDownTimer)other;
@@ -90,6 +140,13 @@ public class CountDownTimer {
 		return false;
 	}
 	
+	   /**
+	   * This compares 2 timers to see if they are equal.
+	   * @param t1 This is one count down timer that you want
+	   * to compare
+	   * @param t2 This is the other count down timer that you want
+	   * to compare
+	   */
 	public static boolean equals(CountDownTimer t1, CountDownTimer t2) {
 		
 		if (t1.hours == t2.getHours() && t1.minutes == t2.getMinutes() && t1.seconds == t2.getSeconds()) {
@@ -100,6 +157,11 @@ public class CountDownTimer {
 		
 	}
 	
+	   /**
+	   * This is used to compare if two timers
+	   * @param other This is the timer that you want to compare
+	   * the current timer to.
+	   */
 	public int compareTo (CountDownTimer other) {
 		
 		int myValue = getValue(this);
@@ -115,6 +177,13 @@ public class CountDownTimer {
 	
 	}
 	
+	   /**
+	   * This compares 2 timers.
+	   * @param t1 This is one count down timer that you want
+	   * to compare
+	   * @param t2 This is the other count down timer that you want
+	   * to compare
+	   */
 	public static int compareTo(CountDownTimer t1, CountDownTimer t2) {
 		
 		int value1 = getValue(t1);
