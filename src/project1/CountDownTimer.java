@@ -145,8 +145,14 @@ public class CountDownTimer {
 	public void dec() {
 		
 		if (isSuspended == false) {
+			
 			int value = getValue(this);
 			value -= 1;
+			
+			if (value <= 0) {
+				value = 0;
+			}
+				
 			secondsToTime(value, this);
 		}
 
