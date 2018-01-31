@@ -240,6 +240,7 @@ public class CountDownTimer {
 		try {
 			out = new PrintWriter(new BufferedWriter(new FileWriter(fileName)));
 		}catch (Exception e) {
+			System.out.println(e.getMessage());
 			throw new IllegalArgumentException();
 		}
 		
@@ -275,6 +276,10 @@ public class CountDownTimer {
 	
 	public static void Suspend(Boolean flag) {
 		isSuspended = flag;
+	}
+	
+	public static boolean getSuspend() {
+		return isSuspended;
 	}
 	
 	//Get methods
