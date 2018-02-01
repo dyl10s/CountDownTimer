@@ -37,6 +37,7 @@ public class MyJFrame extends JFrame implements ActionListener{
 	JButton btnSuspend = new JButton("Suspend");
 	JButton btnNewTimer = new JButton("New Timer");
 	JButton btnAddTime = new JButton("Add Time");
+	JButton btnSubTime = new JButton("Subtract Time");
 	
 	JMenuBar mainMenuBar = new JMenuBar();
 	JMenu fileMenu = new  JMenu("File");
@@ -91,6 +92,9 @@ public class MyJFrame extends JFrame implements ActionListener{
 		
 		Bottom.add(btnAddTime);
 		btnAddTime.addActionListener(this);
+		
+		Bottom.add(btnSubTime);
+		btnSubTime.addActionListener(this);
 		
 		Bottom.add(btnSuspend);
 		btnSuspend.addActionListener(this);
@@ -173,6 +177,16 @@ public class MyJFrame extends JFrame implements ActionListener{
 			int seconds = Integer.parseInt(JOptionPane.showInputDialog(this, "How many seconds would you like to add?", "0"));
 			
 			cdt.add(new CountDownTimer(hours, mins, seconds));
+			
+		}
+		
+		if (comp == btnSubTime) {
+			
+			int hours = Integer.parseInt(JOptionPane.showInputDialog(this, "How many hours would you like to subtract?", "0"));
+			int mins = Integer.parseInt(JOptionPane.showInputDialog(this, "How many minutes would you like to subtract?", "0"));
+			int seconds = Integer.parseInt(JOptionPane.showInputDialog(this, "How many seconds would you like to subtract?", "0"));
+			
+			cdt.sub(CountDownTimer.getValue(new CountDownTimer(hours, mins, seconds)));
 			
 		}
 		
